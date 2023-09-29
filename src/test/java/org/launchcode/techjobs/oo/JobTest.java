@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 import org.junit.Test;
+
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -45,7 +47,37 @@ public class JobTest {
         job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertFalse(job1.equals(job2));
+        assertFalse(equalMsg, job1.equals(job2));
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        String newLineMsg = "To string starts and ends with a new line";
+        job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String firstChar = String.valueOf(job1.toString().charAt(0));
+        String lastChar = String.valueOf(job1.toString().charAt(job1.toString().length()-1));
+
+        assertEquals(firstChar, lineSeparator());
+        assertEquals(lastChar, lineSeparator());
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        String labelAndDataMsg = "toString uses the correct labels and data";
+        job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String expected = System.lineSeparator() +
+                "ID: " + job1.getId() + System.lineSeparator() +
+                "Name: " + job1.getName() + System.lineSeparator() +
+                "Employer: " + job1.getEmployer() + System.lineSeparator() +
+                "Location: " + job1.getLocation() + System.lineSeparator() +
+                "Position Type: " + job1.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + job1.getCoreCompetency() + System.lineSeparator();
+
+        assertEquals(labelAndDataMsg, expected, job1.toString());
     }
 
 
