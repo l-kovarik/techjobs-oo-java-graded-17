@@ -72,12 +72,20 @@ public class JobTest {
         String expected = System.lineSeparator() +
                 "ID: " + job1.getId() + System.lineSeparator() +
                 "Name: " + job1.getName() + System.lineSeparator() +
-                "Employer: " + job1.getEmployer() + System.lineSeparator() +
-                "Location: " + job1.getLocation() + System.lineSeparator() +
-                "Position Type: " + job1.getPositionType() + System.lineSeparator() +
-                "Core Competency: " + job1.getCoreCompetency() + System.lineSeparator();
+                "Employer: " + job1.getEmployer().getValue() + System.lineSeparator() +
+                "Location: " + job1.getLocation().getValue() + System.lineSeparator() +
+                "Position Type: " + job1.getPositionType().getValue() + System.lineSeparator() +
+                "Core Competency: " + job1.getCoreCompetency().getValue() + System.lineSeparator();
 
         assertEquals(labelAndDataMsg, expected, job1.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        String emptyFieldMsg = "an empty field displays 'Data not Available' in toString return";
+        job1 = new Job("", new Employer(""), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(job1.toString().contains("Data not Available"));
     }
 
 

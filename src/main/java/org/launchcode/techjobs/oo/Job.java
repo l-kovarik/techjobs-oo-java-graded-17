@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Objects;
 
 public class Job {
@@ -48,14 +50,37 @@ public class Job {
 
     @Override
     public String toString() {
+        if (name == null && employer == null && location == null && positionType == null && coreCompetency == null) {
+            return "OOPS! This job does not seem to exist.";
+        }
+        if (name == "") {
+            name = "Data not available";
+        }
+        if (getEmployer().getValue() == "") {
+            getEmployer().setValue("Data not available");
+        }
+        if (getLocation().getValue() == "") {
+            getLocation().setValue("Data not available");
+        }
 
-        return System.lineSeparator() +
-                "ID: "+ getId() + System.lineSeparator() +
-                "Name: " + getName() + System.lineSeparator() +
-                "Employer: " + getEmployer() + System.lineSeparator() +
+        if (getPositionType().getValue() == "") {
+            getPositionType().setValue("Data not available");
+        }
+
+        if (getCoreCompetency().getValue() == "") {
+            getCoreCompetency().setValue("Data not available");
+        }
+
+        return
+                System.lineSeparator() +
+                "ID: " + this.id + System.lineSeparator() +
+                "Name: " + this.name + System.lineSeparator() +
+                "Employer: " + getEmployer().getValue() + System.lineSeparator() +
                 "Location: " + getLocation() + System.lineSeparator() +
-                "Position Type: " + getPositionType() + System.lineSeparator() +
-                "Core Competency: " + getCoreCompetency() + System.lineSeparator();
+                "Position Type: " + this.positionType + System.lineSeparator() +
+                "Core Competency: " + this.coreCompetency + System.lineSeparator();
+
+
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
