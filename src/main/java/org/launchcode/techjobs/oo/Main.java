@@ -18,12 +18,8 @@ public class Main {
 //            System.out.println(job);
 //        }
 
-
-        Job job3 = new Job("Ice cream tester", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Tasting ability"));
-        System.out.println(job3.getEmployer());
-        System.out.println(job3.toString());
-
-
+        Job job1 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        System.out.println(job1.toString());
     }
 
 }

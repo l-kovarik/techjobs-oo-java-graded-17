@@ -69,13 +69,13 @@ public class JobTest {
         job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        String expected = System.lineSeparator() +
-                "ID: " + job1.getId() + System.lineSeparator() +
-                "Name: " + job1.getName() + System.lineSeparator() +
-                "Employer: " + job1.getEmployer().getValue() + System.lineSeparator() +
-                "Location: " + job1.getLocation().getValue() + System.lineSeparator() +
-                "Position Type: " + job1.getPositionType().getValue() + System.lineSeparator() +
-                "Core Competency: " + job1.getCoreCompetency().getValue() + System.lineSeparator();
+        String expected = "\n" +
+                "ID: " + job1.getId() + "\n" +
+                "Name: " + job1.getName() + "\n" +
+                "Employer: " + job1.getEmployer().getValue() + "\n" +
+                "Location: " + job1.getLocation().getValue() + "\n" +
+                "Position Type: " + job1.getPositionType().getValue() + "\n" +
+                "Core Competency: " + job1.getCoreCompetency().getValue() + "\n";
 
         assertEquals(labelAndDataMsg, expected, job1.toString());
     }
@@ -83,7 +83,7 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
         String emptyFieldMsg = "an empty field displays 'Data not Available' in toString return";
-        job1 = new Job("", new Employer(""), new Location("Desert"),
+        job1 = new Job("Product tester", new Employer(""), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertTrue(job1.toString().contains("Data not Available"));
     }
