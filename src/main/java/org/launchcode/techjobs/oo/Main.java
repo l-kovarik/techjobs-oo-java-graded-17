@@ -18,10 +18,10 @@ public class Main {
 //            System.out.println(job);
 //        }
 
-        Job job1 = new Job("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
+
         Job job3 = new Job("Ice cream tester", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Tasting ability"));
-        System.out.println(job1.getEmployer());
-        System.out.println(job1.toString());
+        System.out.println(job3.getEmployer());
+        System.out.println(job3.toString());
 
 
     }
