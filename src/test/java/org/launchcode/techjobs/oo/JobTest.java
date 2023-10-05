@@ -59,8 +59,8 @@ public class JobTest {
         String firstChar = String.valueOf(job1.toString().charAt(0));
         String lastChar = String.valueOf(job1.toString().charAt(job1.toString().length()-1));
 
-        assertEquals(firstChar, lineSeparator());
-        assertEquals(lastChar, lineSeparator());
+        assertEquals(firstChar, "\n");
+        assertEquals(lastChar, "\n");
     }
 
     @Test
@@ -85,7 +85,8 @@ public class JobTest {
         String emptyFieldMsg = "an empty field displays 'Data not Available' in toString return";
         job1 = new Job("Product tester", new Employer(""), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(job1.toString().contains("Data not Available"));
+        String jobString = job1.toString();
+        assertTrue(jobString.contains("Data not available"));
     }
 
 
