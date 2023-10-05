@@ -23,7 +23,7 @@ public class JobTest {
         String fieldSetMsg = "constructor correctly sets class and value for all fields.";
         job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Employer employer1 = new Employer("ACME");
+
 
         assertTrue(fieldSetMsg, job1.getName() instanceof String);
         assertTrue(fieldSetMsg, job1.getEmployer() instanceof Employer);
